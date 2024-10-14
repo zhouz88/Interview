@@ -6,7 +6,7 @@ package com.booking.tripsassignment.utils
  */
 sealed class Result<out R> {
     data class Success<out R>(val data: R) : Result<R>()
-    data class Error(val exception: Exception) : Result<Nothing>()
+    data class Error(val exception: Throwable) : Result<Nothing>()
 
     /**
      * Get the result data if it is Success else null.

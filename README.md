@@ -82,8 +82,8 @@ Chains:
 List of Bookings:
 
 Booking(id=1, checkin=1, checkout=3),
-Booking(id=3, checkin=5, checkout=6)
-Booking(id=2, checkin=3, checkout=5),
+Booking(id=2, checkin=5, checkout=6)
+Booking(id=3, checkin=3, checkout=5),
 Booking(id=4, checkin=10, checkout=12),
 Booking(id=5, checkin=12, checkout=13),
 Booking(id=6, checkin=13, checkout=16)
@@ -97,8 +97,8 @@ Chains:
 List of Bookings:
 
 Booking(id=1, checkin=1, checkout=3),
-Booking(id=3, checkin=5, checkout=6)
-Booking(id=2, checkin=3, checkout=5),
+Booking(id=2, checkin=5, checkout=6)
+Booking(id=3, checkin=3, checkout=5),
 Booking(id=4, checkin=10, checkout=12),
 Booking(id=5, checkin=14, checkout=15),
 
