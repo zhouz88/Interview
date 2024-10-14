@@ -1,0 +1,1 @@
+echo "Please use Gradle or Android Studio to run and test your poject";

@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme.Base" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="Theme.Trips" parent="AppTheme.Base">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorPrimaryVariant">@color/brand_primary_variant</item>
+        <item name="colorPrimaryDark">@color/brand_primary_variant</item>
+        <item name="colorOnPrimary">@color/brand_text_color</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/brand_secondary</item>
+        <item name="colorSecondaryVariant">@color/brand_secondary</item>
+        <item name="colorOnSecondary">@color/brand_secondary_text_color</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">?attr/colorOnPrimary</item>
+        <item name="android:colorBackground">@color/background_color</item>
+    </style>
+
+    <style name="HotelImageShape" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+</resources>
