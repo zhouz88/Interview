@@ -1,6 +1,5 @@
 package com.booking.tripsassignment.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,19 +30,16 @@ class TripViewModel : ViewModel() {
             _tripsData.value = LoadingStatus.InProgressLoadingStatus(true)
             val result = withContext(Dispatchers.IO) {
                  bookingService.fetchBookings(userId ?: 0).mapOnSuccess { it ->
-
-
+                     mapBookingsToViewData(it)
                 }
             }
             when (result) {
                 is Result.Success -> {
-                    // changing bookings to Trips 修改 data
                     _tripsData.value = if(result.data?.size == 0) LoadingStatus.ResultEmptyDataStatus(result) else
                         LoadingStatus.ResultSuccessStatus(result)
                 }
 
                 is Result.Error -> {
-                    // changing error to Trips 修改 data;
                     _tripsData.value = LoadingStatus.ResultFailureStatus(result)
                 }
 
@@ -56,9 +52,9 @@ class TripViewModel : ViewModel() {
     }
 
     /**
-     * Sort the
+     * Convert the bookings to TripContentDatas for the UI
      */
-    private fun mapBookingsToViewData(list: List<Booking>): List<TripContentData> {
+    private fun mapBookingsToViewData(list: List<Booking>): MutableList<TripContentData> {
         val bookings = list.sortedBy { it.checkin.toDate().time/1000}
         if (bookings.isEmpty()) {
             return mutableListOf<TripContentData>()

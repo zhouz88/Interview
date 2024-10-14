@@ -17,8 +17,8 @@ import com.chad.library.adapter.base.BaseViewHolder
 class BookingsContentAdapter : BaseQuickAdapter<TripContentData, BaseViewHolder>(null) {
 
     companion object {
-        val HEAD_MESSAGE = 0
-        val CARD_MESSAGE = 1
+        val HEAD_TYPE = 0
+        val CARD_TYPE = 1
 
         val HEAD_TITLE_UPCOMING = "upcoming"
         val HEAD_TITLE_PAST = "past"
@@ -27,14 +27,14 @@ class BookingsContentAdapter : BaseQuickAdapter<TripContentData, BaseViewHolder>
     val holderFactoryCache: SparseArray<AbstractCustomHolderFactory> = SparseArray()
     override fun getDefItemViewType(position: Int): Int {
         return when (data[position]) {
-            is TripContentData.TripHeadItem -> HEAD_MESSAGE
-            else -> CARD_MESSAGE
+            is TripContentData.TripHeadItem -> HEAD_TYPE
+            else -> CARD_TYPE
         }
     }
 
     override fun onCreateDefViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder {
         return when (viewType) {
-            HEAD_MESSAGE -> {
+            HEAD_TYPE -> {
                 val binding = TripsHeaderItemLayoutBinding.inflate(LayoutInflater.from(mContext),parent, false)
                 HeadViewHolder(binding)
             }
@@ -58,11 +58,11 @@ class BookingsContentAdapter : BaseQuickAdapter<TripContentData, BaseViewHolder>
             AbstractCustomHolderFactory {
         if (holderFactoryCache.get(helper.itemViewType) == null) {
             holderFactoryCache.put(helper.itemViewType, when (helper.itemViewType) {
-                HEAD_MESSAGE -> {
+                HEAD_TYPE -> {
                      HeaderLogicFactory()
                 }
 
-                CARD_MESSAGE -> {
+                CARD_TYPE -> {
                     CardLogicFactory()
                 }
                 else -> {

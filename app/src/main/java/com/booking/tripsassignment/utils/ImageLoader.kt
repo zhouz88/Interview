@@ -26,7 +26,6 @@ object ImageLoader {
      * Common method to load and cache images using Glide.
      */
     fun loadImage(view: ImageView, image: String) {
-        Log.d("testtest", image)
         Glide.with(view)
             .load(image)
             .centerCrop()

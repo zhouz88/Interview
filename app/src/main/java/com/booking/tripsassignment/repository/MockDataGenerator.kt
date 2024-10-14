@@ -4,6 +4,7 @@ import com.booking.tripsassignment.data.Booker
 import com.booking.tripsassignment.data.Booking
 import com.booking.tripsassignment.data.Hotel
 import com.booking.tripsassignment.data.Price
+import com.booking.tripsassignment.utils.LocalDateSerializer
 import org.joda.time.LocalDate
 import kotlin.random.Random
 

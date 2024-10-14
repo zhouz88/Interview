@@ -2,14 +2,10 @@ package com.booking.tripsassignment.data
 
 import org.joda.time.LocalDate
 
-/**
- * A data set containing specific Bookings type, e.g. upcoming, past, etc.
- **/
-data class SectionData(
-    val type: String ?,
-    val trips: MutableList<BookingChainInfo> = mutableListOf()
-)
 
+/**
+ * item data of the recyclerview for showing the trips
+ */
 sealed class TripContentData {
     class TripHeadItem(val data: Any): TripContentData()
     class TripCardItem(val data: Any): TripContentData()
@@ -18,10 +14,7 @@ sealed class TripContentData {
 
 
 /**
- * startTime:
- * endTime:
- * bookingChainHead:
- * bookingChainTail:
+ * A BookingChainInfo containing one consecutive list of bookings
  */
 data class BookingChainInfo(
     var startTime: LocalDate?,

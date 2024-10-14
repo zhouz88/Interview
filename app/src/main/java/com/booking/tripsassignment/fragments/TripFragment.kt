@@ -17,13 +17,16 @@ import com.booking.tripsassignment.adapters.BookingsContentAdapter
 import com.booking.tripsassignment.data.TripContentData
 import com.booking.tripsassignment.databinding.TripEmptyViewBinding
 import com.booking.tripsassignment.databinding.TripsListScreenBinding
+import com.booking.tripsassignment.repository.TestCase
 import com.booking.tripsassignment.utils.LoadingStatus
 import com.booking.tripsassignment.utils.Result
 import com.booking.tripsassignment.utils.dp2px
 import com.booking.tripsassignment.viewmodel.TripViewModel
 
 class TripFragment: Fragment() {
-
+    companion object {
+        val INPUT_USER_ID = TestCase.PAST_AND_FUTURE_CHAIN.bookerId
+    }
 
     private val viewModel: TripViewModel by viewModels()
     private lateinit var binding: TripsListScreenBinding
@@ -48,7 +51,7 @@ class TripFragment: Fragment() {
     }
 
     private fun loadData() {
-        viewModel.fetchData(7984567)
+        viewModel.fetchData(INPUT_USER_ID)
     }
 
     private fun initUI() {
@@ -85,7 +88,7 @@ class TripFragment: Fragment() {
         emptyViewBinding = TripEmptyViewBinding.inflate(layoutInflater)
         adapter.setEmptyView(emptyViewBinding.root)
         emptyViewBinding.errorLayout.setOnClickListener{
-            viewModel.fetchData(435)
+            loadData()
         }
         adapter.setEnableLoadMore(false)
         showEmptyView(emptyViewBinding.progress)
@@ -93,6 +96,7 @@ class TripFragment: Fragment() {
 
     private fun initObservers() {
         viewModel.tripsData.observe(this.viewLifecycleOwner) { it ->
+            //handle data
             when (it) {
                 is LoadingStatus.InProgressLoadingStatus -> {
                     adapter.setNewData(null)
@@ -111,6 +115,7 @@ class TripFragment: Fragment() {
                 }
                 else -> {}
             }
+            //update ui
             updateUI(it)
         }
     }
