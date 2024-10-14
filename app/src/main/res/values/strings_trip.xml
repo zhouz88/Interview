@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="upcoming_trips">Upcoming trips</string>
+    <string name="past_trips">Past trips</string>
+
+    <string name="trip_to_somewhere">Trip to</string>
+    <string name="trip_booking_count">%s bookings</string>
+    <string name="trip_no_booking">You have no trips now!</string>
+</resources>

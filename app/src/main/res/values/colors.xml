@@ -6,4 +6,5 @@
     <color name="brand_text_color">#1a1a1a</color>
     <color name="brand_secondary_text_color">#1a1a1a</color>
     <color name="background_color">#ffffff</color>
+    <color name="branc_pink">#FF68A2</color>
 </resources>

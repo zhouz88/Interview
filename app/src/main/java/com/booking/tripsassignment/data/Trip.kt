@@ -1,7 +1,6 @@
 package com.booking.tripsassignment.data
 
 import org.joda.time.LocalDate
-import java.util.LinkedList
 
 /**
  * A data set containing specific Bookings type, e.g. upcoming, past, etc.
@@ -10,6 +9,11 @@ data class SectionData(
     val type: String ?,
     val trips: MutableList<BookingChainInfo> = mutableListOf()
 )
+
+sealed class TripContentData {
+    class TripHeadItem(val data: Any): TripContentData()
+    class TripCardItem(val data: Any): TripContentData()
+}
 
 
 
