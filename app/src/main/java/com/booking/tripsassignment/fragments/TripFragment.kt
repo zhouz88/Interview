@@ -22,7 +22,10 @@ import com.booking.tripsassignment.utils.LoadingStatus
 import com.booking.tripsassignment.utils.Result
 import com.booking.tripsassignment.utils.dp2px
 import com.booking.tripsassignment.viewmodel.TripViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class TripFragment: Fragment() {
     companion object {
         val INPUT_USER_ID = TestCase.PAST_AND_FUTURE_CHAIN.bookerId

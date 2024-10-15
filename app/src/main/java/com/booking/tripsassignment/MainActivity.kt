@@ -7,7 +7,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.booking.tripsassignment.databinding.ActivityMainScreenBinding
 import com.booking.tripsassignment.fragments.TripFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainScreenBinding
     private lateinit var adapter: PagerAdapter

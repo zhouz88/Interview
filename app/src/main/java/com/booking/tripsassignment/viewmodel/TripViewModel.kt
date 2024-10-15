@@ -2,27 +2,34 @@ package com.booking.tripsassignment.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.booking.tripsassignment.adapters.BookingsContentAdapter.Companion.HEAD_TITLE_PAST
 import com.booking.tripsassignment.adapters.BookingsContentAdapter.Companion.HEAD_TITLE_UPCOMING
 import com.booking.tripsassignment.data.Booking
 import com.booking.tripsassignment.data.BookingChainInfo
 import com.booking.tripsassignment.data.TripContentData
+import com.booking.tripsassignment.modules.MockRep
 import com.booking.tripsassignment.repository.BookingRepository
 import com.booking.tripsassignment.repository.MockNetworkBookingRepository
 import com.booking.tripsassignment.utils.LoadingStatus
 import com.booking.tripsassignment.utils.Result
 import com.booking.tripsassignment.utils.startCoroutine
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.joda.time.LocalDate
+import javax.inject.Inject
 
 
-class TripViewModel : ViewModel() {
+@HiltViewModel
+class TripViewModel @Inject constructor(
+    @MockRep private val bookingService: BookingRepository
+):ViewModel() {
     private val _tripsData: MutableLiveData<LoadingStatus<MutableList<TripContentData>>> by lazy {
         MutableLiveData<LoadingStatus<MutableList<TripContentData>>>()
     }
-    val bookingService: BookingRepository = MockNetworkBookingRepository()
+
     val tripsData: LiveData<LoadingStatus<MutableList<TripContentData>>> = _tripsData
 
     fun fetchData(userId: Int?) {
